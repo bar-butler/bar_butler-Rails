@@ -51,6 +51,7 @@ end
 group :production do
   gem 'pg'
   gem 'puma'
+  gem 'rack-cors'
 end
 
 ruby '2.1.5'
