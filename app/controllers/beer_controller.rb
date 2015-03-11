@@ -3,8 +3,8 @@ class BeerController < ApplicationController
   before_action :set_user, :set_beers
 
   def create
-     if params[:listing]
-      listing = params[:listing]
+     if params[:beer]
+      beer = params[:beer]
       @user = current_user
       @beer = @user.beers.create(:user_id => @user.id)
       @beer.update(beer_params)
