@@ -26,3 +26,13 @@
 `Status: 201 Created`
 
 creates a user, returns a success message, email, bar name, and authentication token.
+
+```json
+{
+"user": {
+     "email": "oakgrovetavern@gmail.com",
+     "authentication_token": "mNJ6-zeUKTXbi6cVWyaj",
+     "bar_name": "oakgrovetavern"
+    }
+}
+```
