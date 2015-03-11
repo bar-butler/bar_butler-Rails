@@ -1,4 +1,6 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
+
+  # Devise::PasswordsController
   def create
     self.resource = warden.authenticate(auth_options)
     if self.resource

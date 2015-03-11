@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :username, presence: true, length: { maximum: 50 }, uniqueness: true
+  validates :bar_name, presence: true, length: { maximum: 50 }, uniqueness: true
 
   before_save :ensure_authentication_token
 
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    super(only: [:username, :email, :authentication_token])
+    super(only: [:bar_name, :email, :authentication_token])
   end
 
   private
