@@ -1,28 +1,28 @@
-== README
+## Inventory-Assist
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## API End Point
 
-Things you may want to cover:
+<strong>https://inventory-assist.herokuapp.com</strong>
 
-* Ruby version
+#Users
 
-* System dependencies
+##**sign up/create user**
 
-* Configuration
+####Request
 
-* Database creation
+`GET /users/sign_up`
 
-* Database initialization
+```json
+"user": {
+  "fist_name": "will",
+  "last_name": "jones",
+  "bar_name": "oakgrovetavern",
+  "email": "oakgrovetavern@gmail.com",
+  "password": "password"
+}
+```
 
-* How to run the test suite
+####Response
+`Status: 201 Created`
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+creates a user, returns a success message, email, bar name, and authentication token.
