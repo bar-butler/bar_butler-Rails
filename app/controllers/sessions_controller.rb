@@ -1,4 +1,5 @@
 class SessionsController < Devise::SessionsController
+  skip_before_action :require_no_authentication, :only => [:create]
 
   # Devise::PasswordsController
   def create
@@ -9,5 +10,9 @@ class SessionsController < Devise::SessionsController
     else
       render json: { error: "Authentication Failed!" }, status: :unauthenticated
     end
+  end
+
+  def destroy
+    
   end
 end

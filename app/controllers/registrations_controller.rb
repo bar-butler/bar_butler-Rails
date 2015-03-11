@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, :only => [:create]
 
-  def new
+  def create
     @user = User.new(user_params)
     if @user.save
       render json: { user: @user.as_json(only: [user_params, :authentication_token]) }, status: :created

@@ -4,11 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :bar_name, presence: true, length: { maximum: 50 }, uniqueness: true
-
-  before_save :ensure_authentication_token
-
+  
   has_many :beers
   has_many :liquors
+  
+  before_save :ensure_authentication_token
+
+  
 
   def ensure_authentication_token
     if authentication_token.blank?
