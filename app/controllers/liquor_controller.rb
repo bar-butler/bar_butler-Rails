@@ -1,10 +1,10 @@
 class LiquorController < ApplicationController
   before_action :authenticate_user_from_token!
-  before_action :set_user, :set_beers
+  before_action :set_user, :set_liquors
 
   def create
      if params[:liquor]
-      listing = params[:liquor]
+      liquor = params[:liquor]
       @user = current_user
       @liquor = @user.liquors.create(:user_id => @user.id)
       @liquor.update(liquor_params)
