@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations",
                                     sessions: "sessions" }
+  
+  get '/user', to: 'users#show'
+  patch '/user', to: 'users#edit'
+  delete '/user', to: 'users#destroy'
+
+  post '/user/beer', to: 'beers#create'
+  get '/user/beer/:id', to: 'beers#show'
+  patch '/user/beer/:id', to: 'beers#edit'
+  delete '/user/beer/:id', to: 'beers#destroy'
+
+  
+  
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -20,12 +20,13 @@ class UsersController < ApplicationController
       render json: { :message => "User successfully deleted" }, status: :ok
     else
       render json: { :error => "User was not deleted" }, status: :not_found
+    end  
   end
 
   private
 
-    def user_profile_params
-      params.require(:user).permit(:first_name, :last_name, :bar_name, :email, :password)
-    end
+  def user_profile_params
+    params.require(:user).permit(:first_name, :last_name, :bar_name, :email, :password)
+  end
 
 end
