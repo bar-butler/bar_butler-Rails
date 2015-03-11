@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   patch '/user/beer/:id', to: 'beers#edit'
   delete '/user/beer/:id', to: 'beers#destroy'
 
-  
+  post '/user/liquor', to: 'liquor#create'
+  get '/user/liquor/:id', to: 'liquor#show'
+  patch '/user/liquor/:id', to: 'liquor#edit'
+  delete '/user/liquor/:id', to: 'liquor#destroy'
   
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
