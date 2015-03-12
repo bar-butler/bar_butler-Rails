@@ -4,5 +4,4 @@ json.user do
   json.bar_name @user.bar_name
   json.email @user.email
   json.authentication_token @user.authentication_token
-  json.bar_name @user.bar_name
 end
