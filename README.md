@@ -10,7 +10,7 @@
 
 ####Request
 
-`GET /users/sign_up`
+`POST /users`
 
 ```json
 "user": {
@@ -30,9 +30,7 @@ creates a user, returns a success message, email, bar name, and authentication t
 ```json
 {
 "user": {
-     "email": "oakgrovetavern@gmail.com",
-     "authentication_token": "mNJ6-zeUKTXbi6cVWyaj",
-     "bar_name": "oakgrovetavern"
+     "authentication_token": "mNJ6-zeUKTXbi6cVWyaj"
     }
 }
 ```
