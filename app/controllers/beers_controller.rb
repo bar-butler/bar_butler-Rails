@@ -1,4 +1,4 @@
-class BeerController < ApplicationController
+class BeersController < ApplicationController
   before_action :authenticate_user_from_token!
   before_action :set_user, :set_beers
 
@@ -9,9 +9,9 @@ class BeerController < ApplicationController
       @beer = @user.beers.create(:user_id => @user.id)
       @beer.update(beer_params)
       if @beer.save
-        render json: { :beer => @beer }, status: :created
+        render :create, status: :created
       else
-        render :create
+        render json: { :error => "Problem creating beer properties"}, status: :bad_request
       end
       @beer.update(:beer => @beer.id)
     else
@@ -24,7 +24,7 @@ class BeerController < ApplicationController
     @user = current_user
     @beer = @user.beers.find(params[:id])
     if @beer
-      render :show
+      render :show, status: :ok
     else
       render json: { :error => "No beer with that id" }, status: :not_found
     end
@@ -34,7 +34,7 @@ class BeerController < ApplicationController
     @user = current_user
     @beer = @user.beers.find(params[:id])
     if @beer.update( beer_params )
-      render json: { :beer => @beer }, status: :ok
+      render :edit, status: :ok
     else
       render json: { :error => "There was an error"}, status: :bad_request
     end
@@ -66,7 +66,7 @@ class BeerController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :type, :weight, :keg_weight)
+    params.require(:beer).permit(:name, :type, :weight, :keg_weight, :keg_number)
   end
 end
 
