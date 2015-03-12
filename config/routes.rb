@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations",
                                     sessions: "sessions" }
   
-  get '/user', to: 'users#show'
-  patch '/user', to: 'users#edit'
-  delete '/user', to: 'users#destroy'
+  get '/users/:id', to: 'users#show'
+  patch '/users/:id', to: 'users#edit'
+  delete '/users/:id', to: 'users#destroy'
 
   post '/users/:id/beers', to: 'beers#create'
   get '/users/:id/beers/:id', to: 'beers#show'
