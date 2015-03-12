@@ -58,6 +58,6 @@ class LiquorsController < ApplicationController
   end
 
   def liquor_params
-    params.require(:liquor).permit(:name, :liquor_type, :bottle_count)
+    params.require(:liquor).permit(:liquor_name, :liquor_type, :bottle_count)
   end
 end
