@@ -11,7 +11,7 @@ class BeerController < ApplicationController
       if @beer.save
         render json: { :beer => @beer }, status: :created
       else
-        render json: { :error => "Problem creating beer properties"}, status: :bad_request
+        render :create
       end
       @beer.update(:beer => @beer.id)
     else
@@ -24,7 +24,7 @@ class BeerController < ApplicationController
     @user = current_user
     @beer = @user.beers.find(params[:id])
     if @beer
-      render json: { :beer => @beer }, status: :ok
+      render :show
     else
       render json: { :error => "No beer with that id" }, status: :not_found
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311135015) do
+ActiveRecord::Schema.define(version: 20150312142814) do
 
   create_table "beers", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150311135015) do
     t.string   "keg_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "keg_number"
   end
 
   create_table "liquors", force: :cascade do |t|
