@@ -1,0 +1,6 @@
+json.liquor do 
+    json.id @liquor.id
+    json.name @liquor.name
+    json.type @liquor.liquor_type
+    json.bottle_count @liquor.bottle_count
+end

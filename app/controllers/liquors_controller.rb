@@ -3,22 +3,20 @@ class LiquorsController < ApplicationController
   before_action :set_user, :set_liquors
 
   def create
-      @user = current_user
-      @liquor = @user.liquors.new(liquor_params)
-      if @liquor.save
-        render json: { :liquor => @liquor }, status: :created
-      else
-        render json: { :error => "Problem creating liquor properties"}, status: :bad_request
-      end
-      @liquor.update(:liquor => @liquor.id)
-    
+    @user = current_user
+    @liquor = @user.liquors.new(liquor_params)
+    if @liquor.save
+      render :create, status: :created
+    else
+      render json: { :error => "Problem creating liquor properties"}, status: :bad_request
+    end
   end
 
   def show
     @user = current_user
     @liquor = @user.liquors.find(params[:id])
     if @liquor
-      render json: { :liquor => @liquor }, status: :ok
+      render :show, status: :ok
     else
       render json: { :error => "No liquor with that id" }, status: :not_found
     end
@@ -28,7 +26,7 @@ class LiquorsController < ApplicationController
     @user = current_user
     @liquor = @user.liquors.find(params[:id])
     if @liquor.update( liquor_params )
-      render json: { :liquor => @liquor }, status: :ok
+      render :edit, status: :ok
     else
       render json: { :error => "There was an error"}, status: :bad_request
     end
