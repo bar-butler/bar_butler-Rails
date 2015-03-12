@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   patch '/user', to: 'users#edit'
   delete '/user', to: 'users#destroy'
 
-  post '/user/beer', to: 'beers#create'
-  get '/user/beer/:id', to: 'beers#show'
-  patch '/user/beer/:id', to: 'beers#edit'
-  delete '/user/beer/:id', to: 'beers#destroy'
+  post '/users/:id/beers', to: 'beers#create'
+  get '/users/:id/beers/:id', to: 'beers#show'
+  patch '/users/:id/beers/:id', to: 'beers#edit'
+  delete '/users/:id/beers/:id', to: 'beers#destroy'
 
   post '/user/liquor', to: 'liquors#create'
   get '/user/liquor/:id', to: 'liquors#show'

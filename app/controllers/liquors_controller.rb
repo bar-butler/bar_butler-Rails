@@ -3,20 +3,14 @@ class LiquorsController < ApplicationController
   before_action :set_user, :set_liquors
 
   def create
-     if params[:liquor]
-      liquor = params[:liquor]
       @user = current_user
-      @liquor = @user.liquors.create(:user_id => @user.id)
-      @liquor.update(liquor_params)
+      @liquor = @user.liquors.new(liquor_params)
       if @liquor.save
         render json: { :liquor => @liquor }, status: :created
       else
         render json: { :error => "Problem creating liquor properties"}, status: :bad_request
       end
       @liquor.update(:liquor => @liquor.id)
-    else
-      render json: { :error => "Problem creating liquor properties"}, status: :bad_request
-    end
     
   end
 
@@ -57,15 +51,15 @@ class LiquorsController < ApplicationController
     @user = current_user
   end
 
-  def set_beer
+  def set_liquor
     @liquor = Liquor.find(params[:id])
   end
 
-  def set_beers
+  def set_liquors
     @liquors = @user.beers.all
   end
 
   def liquor_params
-    params.require(:liquor).permit(:name, :type, :bottle_count)
+    params.require(:liquor).permit(:name, :liquor_type, :bottle_count)
   end
 end

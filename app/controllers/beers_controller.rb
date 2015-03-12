@@ -3,21 +3,14 @@ class BeersController < ApplicationController
   before_action :set_user, :set_beers
 
   def create
-     if params[:beer]
-      beer = params[:beer]
-      @user = current_user
-      @beer = @user.beers.create(:user_id => @user.id)
-      @beer.update(beer_params)
-      if @beer.save
-        render :create, status: :created
-      else
-        render json: { :error => "Problem creating beer properties"}, status: :bad_request
-      end
-      @beer.update(:beer => @beer.id)
+    @user = set_user
+    @beer = @user.beers.new(user_id: @user.id)
+    @beer.update(beer_params)
+    if @beer.save
+      render :create, status: :created
     else
       render json: { :error => "Problem creating beer properties"}, status: :bad_request
     end
-    
   end
 
   def show
@@ -66,7 +59,7 @@ class BeersController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:name, :type, :weight, :keg_weight, :keg_number)
+    params.require(:beer).permit(:id, :beer_name, :beer_type, :weight, :keg_weight, :keg_number)
   end
 end
 
@@ -78,6 +71,7 @@ end
 #    t.string   "keg_weight"
 #    t.datetime "created_at", null: false
 #    t.datetime "updated_at", null: false
+#    t.integer  "keg_number"
 #  end
 
 

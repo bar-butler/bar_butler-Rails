@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312142814) do
+ActiveRecord::Schema.define(version: 20150312185903) do
 
   create_table "beers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "type"
+    t.string   "beer_name"
+    t.string   "beer_type"
     t.integer  "user_id"
     t.string   "weight"
     t.string   "keg_weight"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150312142814) do
 
   create_table "liquors", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "liquor_type"
     t.integer  "user_id"
     t.integer  "case_id"
     t.datetime "created_at",   null: false

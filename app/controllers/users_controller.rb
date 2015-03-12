@@ -2,13 +2,13 @@ class UsersController < ApplicationController
  
   def show
     @user = current_user
-    render json: { :user => @user.as_json(:only => [:first_name, :last_name, :bar_name, :email, :password]) }, status: :ok
+    render :show, status: :ok
   end
 
   def edit
     @user = current_user
     if @user.update(user_profile_params)
-      render json: { :user => @user.as_json(:only => [:first_name, :last_name, :bar_name, :email, :password])}, status: :accepted
+      render :edit, status: :accepted
     else
       render json: { :error => "Unable to edit user."}, status: :bad_request
     end
