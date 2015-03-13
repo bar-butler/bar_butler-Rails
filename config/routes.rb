@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   patch '/users/:id/liquors/:id', to: 'liquors#edit'
   delete '/users/:id/liquors/:id', to: 'liquors#destroy'
   
-  root 'users#index'
+  root 'users#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
