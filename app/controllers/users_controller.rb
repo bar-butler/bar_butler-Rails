@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
  
   def show
-    @user = current_user
-    render :show, status: :ok
+    @user = User.find(params[:id])
+    if @user
+      render :show, status: :ok
+    else
+      render json: { :error => "No user with that id" }, status: :not_found
+    end
   end
 
   def edit
-    @user = current_user
-    if @user.update(user_profile_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       render :edit, status: :accepted
     else
       render json: { :error => "Unable to edit user."}, status: :bad_request
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user_profile_params
+  def user_params
     params.require(:user).permit(:first_name, :last_name, :bar_name, :email, :password)
   end
 

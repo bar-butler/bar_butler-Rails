@@ -4,6 +4,9 @@ class Beer < ActiveRecord::Base
   has_many :cans
   has_many :bottles
 
-  def choose_container
+  def update_dry_at!
+    if self.drinks.count > 3
+      
+    end
   end
 end
