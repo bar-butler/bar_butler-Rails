@@ -4,6 +4,38 @@
 
 <strong>https://inventory-assist.herokuapp.com</strong>
 
+##Routes
+```
+                  Prefix Verb   URI Pattern                      Controller#Action
+        new_user_session GET    /users/sign_in(.:format)         sessions#new
+            user_session POST   /users/sign_in(.:format)         sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)        sessions#destroy
+           user_password POST   /users/password(.:format)        devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)    devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)   devise/passwords#edit
+                         PATCH  /users/password(.:format)        devise/passwords#update
+                         PUT    /users/password(.:format)        devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)          registrations#cancel
+       user_registration POST   /users(.:format)                 registrations#create
+   new_user_registration GET    /users/sign_up(.:format)         registrations#new
+  edit_user_registration GET    /users/edit(.:format)            registrations#edit
+                         PATCH  /users(.:format)                 registrations#update
+                         PUT    /users(.:format)                 registrations#update
+                         DELETE /users(.:format)                 registrations#destroy
+                    user GET    /users/:id(.:format)             users#show
+               edit_user PATCH  /users/:id(.:format)             users#edit
+            destroy_user DELETE /users/:id(.:format)             users#destroy
+          new_user_beers POST   /users/:id/beers(.:format)       beers#create
+              user_beers GET    /users/:id/beers/:id(.:format)   beers#show
+         edit_user_beers PATCH  /users/:id/beers/:id(.:format)   beers#edit
+      destroy_user_beers DELETE /users/:id/beers/:id(.:format)   beers#destroy
+         new_user_liquor POST   /users/:id/liquors(.:format)     liquors#create
+             user_liquor GET    /users/:id/liquors/:id(.:format) liquors#show
+        edit_user_liquor PATCH  /users/:id/liquors/:id(.:format) liquors#edit
+     destroy_user_liquor DELETE /users/:id/liquors/:id(.:format) liquors#destroy
+                    root GET    /                                users#show
+```
+
 #Users
 
 ##**sign up/create user**
