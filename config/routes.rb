@@ -2,19 +2,19 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations",
                                     sessions: "sessions" }
   
-  get '/users/:id', to: 'users#show'
-  patch '/users/:id', to: 'users#edit'
-  delete '/users/:id', to: 'users#destroy'
+  get '/users/:id', to: 'users#show', as: 'user'
+  patch '/users/:id', to: 'users#edit', as: 'edit_user'
+  delete '/users/:id', to: 'users#destroy', as: 'destroy_user'
 
-  post '/users/:id/beers', to: 'beers#create'
-  get '/users/:id/beers/:id', to: 'beers#show'
-  patch '/users/:id/beers/:id', to: 'beers#edit'
-  delete '/users/:id/beers/:id', to: 'beers#destroy'
+  post '/users/:id/beers', to: 'beers#create', as: 'new_user_beers'
+  get '/users/:id/beers/:id', to: 'beers#show', as: 'user_beers'
+  patch '/users/:id/beers/:id', to: 'beers#edit', as: 'edit_user_beers'
+  delete '/users/:id/beers/:id', to: 'beers#destroy', as:'destroy_user_beers'
 
-  post '/users/:id/liquors', to: 'liquors#create'
-  get '/users/:id/liquors/:id', to: 'liquors#show'
-  patch '/users/:id/liquors/:id', to: 'liquors#edit'
-  delete '/users/:id/liquors/:id', to: 'liquors#destroy'
+  post '/users/:id/liquors', to: 'liquors#create', as: 'new_user_liquor'
+  get '/users/:id/liquors/:id', to: 'liquors#show', as: 'user_liquor'
+  patch '/users/:id/liquors/:id', to: 'liquors#edit', as: 'edit_user_liquor'
+  delete '/users/:id/liquors/:id', to: 'liquors#destroy', as: 'destroy_user_liquor'
   
   root 'users#show'
   # The priority is based upon order of creation: first created -> highest priority.
