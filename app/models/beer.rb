@@ -5,6 +5,9 @@ class Beer < ActiveRecord::Base
   has_many :bottles
 
   def update_dry_at!
+    
+    initial_weight = Weight.new(:keg_weight + :weight, :lb)
+    new_weight = initial_weight - [:drinks][:amount]
     if self.drinks.count > 3
       
     end
