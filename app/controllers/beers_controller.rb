@@ -13,6 +13,16 @@ class BeersController < ApplicationController
     end
   end
 
+  def index
+    @user = current_user
+    @beers = @user.beers.all
+    if @beers
+      render :index, status: :ok
+    else
+      render json: { :error => "Unable to find all beers" }, status: :not_found
+    end 
+  end
+
   def show
     @user = current_user
     @beer = @user.beers.find(params[:id])

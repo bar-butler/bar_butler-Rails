@@ -12,6 +12,16 @@ class LiquorsController < ApplicationController
     end
   end
 
+  def index
+    @user = current_user
+    @liquors = @user.liquors.all
+    if @liquors
+      render :index, status: :ok
+    else
+      render json: { :error => "Unable to find all liquors" }, status: :not_found
+    end 
+  end
+
   def show
     @user = current_user
     @liquor = @user.liquors.find(params[:id])
