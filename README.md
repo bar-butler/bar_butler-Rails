@@ -143,11 +143,11 @@ a user can add a beer
 
 ####Request
 
-`GET /users/:id/beers/:id
+`GET /users/:id/beers/:id`
 
 ```json
 {
-    "authentication_token": "CjsyXUPfxM3Ta3qtBBxd"
+    "authentication_token": "mNJ6-zeUKTXbi6cVWyaj"
 }
 ```
 
@@ -168,5 +168,30 @@ returns a specific beer for a user
     }
 }
 ```
+
+##**allows a user to delete a beer**
+
+####Request
+
+`DESTROY /users/:id/beers/:id`
+
+```json
+{
+    "authentication_token": "mNJ6-zeUKTXbi6cVWyaj"
+}
+```
+
+####Response
+`200 OK`
+
+user deletes a specific beer
+
+```json
+{
+    "message": "Beer successfully deleted"
+}
+```
+
+
 
 
