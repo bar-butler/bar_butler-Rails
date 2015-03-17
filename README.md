@@ -155,7 +155,7 @@ a user can add a beer
 
 ```json
 {
-    "authentication_token": "mNJ6-zeUKTXbi6cVWyaj"
+    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
 }
 ```
 
@@ -185,7 +185,7 @@ returns a specific beer for a user
 
 ```json
 {
-    "authentication_token": "mNJ6-zeUKTXbi6cVWyaj"
+    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
 }
 ```
 
