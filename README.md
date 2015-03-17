@@ -103,6 +103,14 @@ sign in a user and returns the following...
 }
 ```
 
+##**log out**
+
+####Request
+
+`DELETE /users/sign_out`
+
+signs a user out. Does not return any response
+
 ##**create a beer**
 
 ####Request
