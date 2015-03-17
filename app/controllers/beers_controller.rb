@@ -31,6 +31,7 @@ class BeersController < ApplicationController
     if @beer.update( beer_params )
       @drink = @beer.drinks.create(:amount => @amount)
       @beer.update_dry_at!
+      KegUpdateJob.perform_later(@user, @beer)
       render :edit, status: :ok
     else
       render json: { :error => "There was an error"}, status: :bad_request
@@ -46,7 +47,6 @@ class BeersController < ApplicationController
       render json: { :error => "Beer was not deleted" }, status: :not_found
     end 
   end
-
 
   private
 
