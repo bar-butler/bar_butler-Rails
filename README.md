@@ -103,3 +103,40 @@ sign in a user and returns the following...
 }
 ```
 
+##**create a beer**
+
+####Request
+
+`POST /users/:id/beers`
+
+```json
+{
+"beer": {
+     "beer_name": "budweiser",
+     "beer_type": "lager",
+     "weight": "130",
+     "keg_weight": "160",
+     "keg_number": "1"
+    }
+}
+```
+
+####Response
+`Status 201 Created`
+
+a user can add a beer
+
+```json
+{
+"beer": {
+     "id": 1,
+     "name": "budweiser",
+     "type": "lager",
+     "weight": "130",
+     "keg_weight": "160",
+     "keg_number": "1"
+    }
+}
+```
+
+
