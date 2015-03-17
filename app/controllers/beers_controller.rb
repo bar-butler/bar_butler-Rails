@@ -24,9 +24,13 @@ class BeersController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @beer = @user.beers.find(params[:id])
+    @beer = current_user.beers.find(params[:id])
+    old_weight = @beer.weight
+    new_weight = params[:beer][:weight]
+    @amount = new_weight - old_weight
     if @beer.update( beer_params )
+      @drink = @beer.drinks.create(:amount => @amount)
+      @beer.update_dry_at!
       render :edit, status: :ok
     else
       render json: { :error => "There was an error"}, status: :bad_request
@@ -34,7 +38,7 @@ class BeersController < ApplicationController
   end
 
   def destroy
-     @user = current_user
+    @user = current_user
     @beer = @user.beers.find(params[:id])
     if @beer.destroy
      render json: { :message => "Beer successfully deleted" }, status: :ok
@@ -59,7 +63,7 @@ class BeersController < ApplicationController
   end
 
   def beer_params
-    params.require(:beer).permit(:id, :beer_name, :beer_type, :weight, :keg_weight, :keg_number)
+    params.require(:beer).permit(:id, :beer_name, :beer_type, :weight, :keg_number)
   end
 end
 
