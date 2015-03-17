@@ -139,4 +139,34 @@ a user can add a beer
 }
 ```
 
+##**find a specific beer for a user**
+
+####Request
+
+`GET /users/:id/beers/:id
+
+```json
+{
+    "authentication_token": "CjsyXUPfxM3Ta3qtBBxd"
+}
+```
+
+####Response
+`200 OK`
+
+returns a specific beer for a user
+
+```json
+{
+"beer": {
+     "id": 3,
+     "name": "420",
+     "type": null,
+     "weight": null,
+     "keg_weight": 30,
+     "keg_number": null
+    }
+}
+```
+
 
