@@ -7,8 +7,7 @@ class Beer < ActiveRecord::Base
     rate = sum / 168
     # rate.floor.hours.from_now
     # self.update_attribute :dry_at => rate.floor.hours.from_now
-    # self.update(dry_at: rate.floor.hours.from_now)
-    self.dry_at = rate.floor.hours.from_now
+      self.update(dry_at: rate.floor.hours.from_now)
   end
 
   # def update_dry_at!()
