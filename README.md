@@ -191,10 +191,10 @@ returns a specific beer for a user
 }
 ```
 
-shows a user's list of beers...
-
 ####Response
 `200 OK`
+
+shows a user's list of beers...
 
 ```json
 [
