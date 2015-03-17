@@ -6,7 +6,7 @@
 
 ##Routes
 ```
-                  Prefix Verb   URI Pattern                      Controller#Action
+         Prefix Verb   URI Pattern                      Controller#Action
         new_user_session GET    /users/sign_in(.:format)         sessions#new
             user_session POST   /users/sign_in(.:format)         sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)        sessions#destroy
@@ -25,11 +25,13 @@ cancel_user_registration GET    /users/cancel(.:format)          registrations#c
                     user GET    /users/:id(.:format)             users#show
                edit_user PATCH  /users/:id(.:format)             users#edit
             destroy_user DELETE /users/:id(.:format)             users#destroy
-          new_user_beers POST   /users/:id/beers(.:format)       beers#create
-              user_beers GET    /users/:id/beers/:id(.:format)   beers#show
-         edit_user_beers PATCH  /users/:id/beers/:id(.:format)   beers#edit
-      destroy_user_beers DELETE /users/:id/beers/:id(.:format)   beers#destroy
+           new_user_beer POST   /users/:id/beers(.:format)       beers#create
+              user_beers GET    /users/:id/beers(.:format)       beers#index
+               user_beer GET    /users/:id/beers/:id(.:format)   beers#show
+          edit_user_beer PATCH  /users/:id/beers/:id(.:format)   beers#edit
+       destroy_user_beer DELETE /users/:id/beers/:id(.:format)   beers#destroy
          new_user_liquor POST   /users/:id/liquors(.:format)     liquors#create
+            user_liquors GET    /users/:id/liquors(.:format)     liquors#index
              user_liquor GET    /users/:id/liquors/:id(.:format) liquors#show
         edit_user_liquor PATCH  /users/:id/liquors/:id(.:format) liquors#edit
      destroy_user_liquor DELETE /users/:id/liquors/:id(.:format) liquors#destroy
@@ -175,6 +177,58 @@ returns a specific beer for a user
      "keg_number": null
     }
 }
+```
+
+##**list all beers**
+
+####Request
+
+`GET /users/:id/beers`
+
+```json
+{
+    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+}
+```
+
+shows a user's list of beers...
+
+####Response
+`200 OK`
+
+```json
+[
+    {
+    "beers": {
+             "id": 1,
+             "name": "bud_light",
+             "type": null,
+             "weight": null,
+             "keg_weight": null,
+             "keg_number": null
+             }
+    },
+    {
+    "beers": {
+             "id": 2,
+             "name": "budweiser",
+             "type": null,
+             "weight": null,
+             "keg_weight": 30,
+             "keg_number": null
+             }
+    },
+    {
+    "beers": {
+             "id": 3,
+             "name": "420",
+             "type": null,
+             "weight": null,
+             "keg_weight": 30,
+             "keg_number": null
+             }
+    }
+]
 ```
 
 ##**allows a user to delete a beer**
