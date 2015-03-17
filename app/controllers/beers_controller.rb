@@ -48,11 +48,6 @@ class BeersController < ApplicationController
     end 
   end
 
-  def 
-    
-  end
-
-
   private
 
   def set_user
