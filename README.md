@@ -48,7 +48,7 @@ cancel_user_registration GET    /users/cancel(.:format)          registrations#c
 
 ```json
 "user": {
-  "fist_name": "will",
+  "first_name": "will",
   "last_name": "jones",
   "bar_name": "oakgrovetavern",
   "email": "oakgrovetavern@gmail.com",
@@ -83,7 +83,7 @@ creates a user, returns a success message and the following...
 "user": {
      "email": "oakgrovetavern@gmail.com",
      "password": "password",
-     "authentication_token": "mNJ6-zeUKTXbi6cVWyaj"
+     "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
 }
 ```
 
