@@ -5,9 +5,7 @@ class Beer < ActiveRecord::Base
   def update_dry_at!
     sum = self.drinks.where(created_at: [1.week.ago, DateTime.now ]).sum("drinks.amount")
     rate = sum / 168
-    # rate.floor.hours.from_now
-    # self.update_attribute :dry_at => rate.floor.hours.from_now
-      self.update(dry_at: rate.floor.hours.from_now)
+    self.update(dry_at: rate.floor.hours.from_now)
   end
 
   # def update_dry_at!()
