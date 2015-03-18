@@ -2,7 +2,8 @@ class BeersController < ApplicationController
   before_action :authenticate_user_from_token!
 
   def create
-    @beer = current_user.beers.new(user_id: @user.id)
+    @user = current_user
+    @beer = @user.beers.new(user_id: @user.id)
     @beer.update(beer_params)
     if @beer.save
       render :create, status: :created
