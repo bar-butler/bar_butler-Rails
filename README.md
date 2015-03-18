@@ -197,38 +197,37 @@ returns a specific beer for a user
 shows a user's list of beers...
 
 ```json
-[
-    {
-    "beers": {
+{
+    "beers": [
+          {
              "id": 1,
              "name": "bud_light",
              "type": null,
              "weight": null,
+             "dry_at": null,
              "keg_weight": null,
              "keg_number": null
-             }
-    },
-    {
-    "beers": {
+          },
+          {
              "id": 2,
              "name": "budweiser",
              "type": null,
              "weight": null,
+             "dry_at": null,
              "keg_weight": 30,
              "keg_number": null
-             }
-    },
-    {
-    "beers": {
+          },
+          {
              "id": 3,
              "name": "420",
              "type": null,
              "weight": null,
+             "dry_at": null,
              "keg_weight": 30,
              "keg_number": null
-             }
-    }
-]
+          }
+    ]
+}
 ```
 
 ##**allows a user to delete a beer**
