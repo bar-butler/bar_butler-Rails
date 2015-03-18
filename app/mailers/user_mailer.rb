@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def warning_low(email)
     mail(
       to: email,
-      subject: "You are almost out of beer!"
+      subject: "You are almost out of beer!",
       body: "This message is to inform you that your current keg of '' is running low.
             Please refill as soon as possible.
                                     -Sincerely,
