@@ -235,7 +235,7 @@ shows a user's list of beers...
 
 ####Request
 
-`DESTROY /users/:id/beers/:id`
+`DELETE /users/:id/beers/:id`
 
 ```json
 {
