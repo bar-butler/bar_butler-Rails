@@ -253,6 +253,140 @@ user deletes a specific beer
 }
 ```
 
+##**create a liquor**
+
+####Request
+
+`POST /users/:id/liquors`
+
+```json
+{
+"liquor": {
+       "id": 1,
+       "name": "absolute",
+       "type": "vodka",
+       "bottle_count": 24
+      }
+}
+```
+
+####Response
+`201 Created`
+
+a user can add a liquor
+
+```json
+{
+"liquor": {
+       "id": 1,
+       "name": "absolute",
+       "type": "vodka",
+       "bottle_count": 24
+      }
+}
+```
+
+##**find a specific liquor**
+
+####Request
+
+`GET /users/:id/liquors/:id`
+
+```json
+{
+    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+}
+```
+
+####Response
+`200 OK`
+
+returns a specific liquor
+
+```json
+{
+"liquor": {
+       "id": 3,
+       "name": "Captain Morgan",
+       "type": "rum",
+       "bottle_count": 24
+      }
+}
+```
+
+##**list all liquors**
+
+####Request
+
+`GET /users/:id/liqours`
+
+```json
+{
+    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+}
+```
+
+####Response
+`200 OK`
+
+shows a user's list of liqours...
+
+```json
+{
+    "liquors": [
+           {
+            "id": 1,
+            "name": "absolute",
+            "type": "vodka",
+            "bottle_count": 24
+           },
+           {
+            "id": 2,
+            "name": "Jack Daniel's",
+            "type": "whiskey",
+            "bottle_count": 24
+           },
+           {
+            "id": 3,
+            "name": "Captain Morgan",
+            "type": "rum",
+            "bottle_count": 24
+           },
+           {
+            "id": 4,
+            "name": "Bacardi",
+            "type": "rum",
+            "bottle_count": 24
+           }
+    ]
+}
+```
+##**a user can delete a liquor**
+
+####Request
+
+`DELETE /users/:id/liquors/:id`
+
+```json
+{
+    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+}
+```
+
+####Response
+`200 OK`
+
+user deletes a specific liquor
+
+```json
+{
+    "message": "Liquor successfully deleted"
+}
+```
+
+
+
+
 
 
 
