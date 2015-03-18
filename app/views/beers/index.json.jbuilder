@@ -1,5 +1,5 @@
-json.array! @beers do |beers|
-  json.beers do 
+json.beers do
+  json.array! @beers do |beers|
       json.id beers.id
       json.name beers.beer_name
       json.type beers.beer_type
