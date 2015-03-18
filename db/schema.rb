@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316201333) do
+ActiveRecord::Schema.define(version: 20150318000318) do
 
   create_table "beers", force: :cascade do |t|
     t.string   "beer_name"
     t.string   "beer_type"
     t.integer  "user_id"
+    t.float    "weight"
+    t.float    "keg_weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "keg_number"
     t.datetime "dry_at"
-    t.float    "weight"
-    t.float    "keg_weight"
   end
 
   create_table "drinks", force: :cascade do |t|
