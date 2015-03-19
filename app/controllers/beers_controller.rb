@@ -32,9 +32,7 @@ class BeersController < ApplicationController
 
   def edit
     @beer = current_user.beers.find(params[:id])
-    old_weight = @beer.weight
-    new_weight = params[:beer][:weight].to_f
-    @amount = new_weight - old_weight
+    set_amount(params[:beer][:weight].to_f)
     if @beer.update( beer_params )
       @drink = @beer.drinks.create(:amount => @amount)
       @beer.update_dry_at!
@@ -59,6 +57,15 @@ class BeersController < ApplicationController
   def beer_params
     params.require(:beer).permit(:id, :beer_name, :beer_type, :keg_weight, 
                                  :weight, :keg_number, :dry_at)
+  end
+
+  def set_amount(new_weight)
+    old_weight = @beer.weight
+    if new_weight > old_weight
+      @amount = old_weight
+    else
+      @amount = old_weight - new_weight
+    end
   end
 end
 
