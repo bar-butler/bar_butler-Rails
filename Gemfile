@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sidekiq', '>= 0.8.7'
+gem 'sucker_punch'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
