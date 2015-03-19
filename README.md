@@ -2,7 +2,7 @@
 
 ## API End Point
 
-<strong>https://inventory-assist.herokuapp.com</strong>
+<strong>https://bar-butler.herokuapp.com</strong>
 
 ##Routes
 ```
