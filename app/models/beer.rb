@@ -21,7 +21,6 @@ class Beer < ActiveRecord::Base
       rate = sum / @drink_hours
     # drinks per hour
     dph = self.weight / rate
-    binding.pry
     self.update(dry_at: dph.floor.hours.from_now)
     end
   end
