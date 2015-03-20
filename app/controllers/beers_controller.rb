@@ -32,11 +32,11 @@ class BeersController < ApplicationController
 
   def edit
     @beer = current_user.beers.find(params[:id])
-    set_amount(params[:beer][:weight].to_f)
+    @amount = weight_change(params[:beer][:weight].to_f)
     if @beer.update( beer_params )
       @drink = @beer.drinks.create(:amount => @amount)
       @beer.update_dry_at!
-#      KegUpdateJob.perform_later(current_user, @beer)
+      KegUpdateJob.perform_later(current_user, @beer)
       render :edit, status: :ok
     else
       render json: { :error => "There was an error"}, status: :bad_request
@@ -59,12 +59,12 @@ class BeersController < ApplicationController
                                  :weight, :keg_number, :dry_at)
   end
 
-  def set_amount(new_weight)
+  def weight_change(new_weight)
     old_weight = @beer.weight
     if new_weight > old_weight
-      @amount = old_weight
+      old_weight
     else
-      @amount = old_weight - new_weight
+      old_weight - new_weight
     end
   end
 end
