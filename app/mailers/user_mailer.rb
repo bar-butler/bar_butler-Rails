@@ -1,7 +1,8 @@
 class UserMailer < ActionMailer::Base
   default from: 'noreturn@bar-butler.com'
 
-  def warning_low(email, beer)
+  def warning_low(user, beer)
+    email = user.email 
     mail(
       to: email,
       subject: "You are almost out of beer!",
