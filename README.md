@@ -255,9 +255,9 @@ shows the updated weight of the beer and calculates the time remaining until the
 {
 "beer": {
      "name": "budweiser",
-     "type": lager,
-     "weight": 100,
-     "dry_at": "about 20 hours"
+     "type": "lager",
+     "weight": "100",
+     "dry_at": "about 20 hours",
      "keg_weight": "30",
      "keg_number": "1"
     }
