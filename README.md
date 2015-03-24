@@ -6,7 +6,7 @@
 
 ##Routes
 ```
-         Prefix Verb   URI Pattern                      Controller#Action
+                  Prefix Verb   URI Pattern                      Controller#Action
         new_user_session GET    /users/sign_in(.:format)         sessions#new
             user_session POST   /users/sign_in(.:format)         sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)        sessions#destroy
@@ -23,17 +23,17 @@ cancel_user_registration GET    /users/cancel(.:format)          registrations#c
                          PUT    /users(.:format)                 registrations#update
                          DELETE /users(.:format)                 registrations#destroy
                     user GET    /users/:id(.:format)             users#show
-               edit_user PATCH  /users/:id(.:format)             users#edit
+               edit_user PUT    /users/:id(.:format)             users#edit
             destroy_user DELETE /users/:id(.:format)             users#destroy
            new_user_beer POST   /users/:id/beers(.:format)       beers#create
               user_beers GET    /users/:id/beers(.:format)       beers#index
                user_beer GET    /users/:id/beers/:id(.:format)   beers#show
-          edit_user_beer PATCH  /users/:id/beers/:id(.:format)   beers#edit
+          edit_user_beer PUT    /users/:id/beers/:id(.:format)   beers#edit
        destroy_user_beer DELETE /users/:id/beers/:id(.:format)   beers#destroy
          new_user_liquor POST   /users/:id/liquors(.:format)     liquors#create
             user_liquors GET    /users/:id/liquors(.:format)     liquors#index
              user_liquor GET    /users/:id/liquors/:id(.:format) liquors#show
-        edit_user_liquor PATCH  /users/:id/liquors/:id(.:format) liquors#edit
+        edit_user_liquor PUT    /users/:id/liquors/:id(.:format) liquors#edit
      destroy_user_liquor DELETE /users/:id/liquors/:id(.:format) liquors#destroy
                     root GET    /                                users#show
 ```
@@ -234,7 +234,7 @@ shows a user's list of beers...
 
 ####Request
 
-`PATCH /users/:id/beers/:id`
+`PUT /users/:id/beers/:id`
 
 ```json
 {
@@ -398,7 +398,7 @@ shows a user's list of liqours...
 
 ####Request
 
-`PATCH /users/:id/liquors/:id`
+`PUT /users/:id/liquors/:id`
 
 ```json
 {
