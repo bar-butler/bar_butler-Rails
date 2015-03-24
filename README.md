@@ -125,7 +125,7 @@ signs a user out. Does not return any response
      "beer_name": "budweiser",
      "beer_type": "lager",
      "weight": "130",
-     "keg_weight": "160",
+     "keg_weight": "30",
      "keg_number": "1"
     }
 }
@@ -134,7 +134,7 @@ signs a user out. Does not return any response
 ####Response
 `Status 201 Created`
 
-a user can add a beer
+user can add a beer
 
 ```json
 {
@@ -143,7 +143,7 @@ a user can add a beer
      "name": "budweiser",
      "type": "lager",
      "weight": "130",
-     "keg_weight": "160",
+     "keg_weight": "30",
      "keg_number": "1"
     }
 }
@@ -173,7 +173,7 @@ returns a specific beer for a user
      "name": "420",
      "type": null,
      "weight": null,
-     "keg_weight": 30,
+     "keg_weight": "30",
      "keg_number": null
     }
 }
@@ -230,6 +230,40 @@ shows a user's list of beers...
 }
 ```
 
+##**user can edit a beer**
+
+####Request
+
+`PATCH /users/:id/beers/:id`
+
+```json
+{
+"beer": {
+
+     "weight": "130"
+
+    }
+}
+```
+
+####Response
+`200 OK`
+
+shows the updated weight of the beer and calculates the time remaining until the keg is empty...
+
+```json
+{
+"beer": {
+     "name": "budweiser",
+     "type": "lager",
+     "weight": "100",
+     "dry_at": "about 20 hours",
+     "keg_weight": "30",
+     "keg_number": "1"
+    }
+}
+```
+
 ##**allows a user to delete a beer**
 
 ####Request
@@ -262,9 +296,8 @@ user deletes a specific beer
 ```json
 {
 "liquor": {
-       "id": 1,
-       "name": "absolute",
-       "type": "vodka",
+       "liquor_name": "absolute",
+       "liquor_type": "vodka",
        "bottle_count": 24
       }
 }
@@ -361,6 +394,38 @@ shows a user's list of liqours...
     ]
 }
 ```
+##**user can edit a liquor**
+
+####Request
+
+`PATCH /users/:id/liquors/:id`
+
+```json
+{
+"liquor": {
+
+       "bottle_count": 20
+
+      }
+}
+```
+
+####Response
+`200 OK`
+
+user updates a liquor
+
+```json
+{
+"liquor": {
+       "id": 3,
+       "name": "Captain Morgan",
+       "type": "rum",
+       "bottle_count": 20
+      }
+}
+```
+
 ##**a user can delete a liquor**
 
 ####Request
