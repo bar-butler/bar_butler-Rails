@@ -1,4 +1,5 @@
 json.beer do 
+  json.id @beer.id
   json.name @beer.beer_name
   json.type @beer.beer_type
   json.weight @beer.weight
