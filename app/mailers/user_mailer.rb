@@ -10,7 +10,7 @@ class UserMailer < ActionMailer::Base
 
            "Dear #{user.first_name},
 
-            This message is to inform you that your current keg of #{beer} is running low.
+            This message is to inform you that your current keg of #{beer.beer_name} is running low.
             Please refill as soon as possible.
                                     -Sincerely,
                                      Bar Butler"
