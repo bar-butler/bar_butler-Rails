@@ -21,7 +21,7 @@ class UserMailer < ActionMailer::Base
     email = user.email
     mail(
       to: email,
-      subject: "Only One Left!"
+      subject: "Only One Left!",
       body: 
 
            "Dear #{user.first_name},
@@ -29,6 +29,7 @@ class UserMailer < ActionMailer::Base
             This message is to inform you that you are down to one keg of #{beer.beer_name}.
             Please restock as soon as possible.
                                     -Sincerely,
-                                     Bar Butler")
+                                     Bar Butler"
+                                     )
   end
 end
