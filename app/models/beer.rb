@@ -27,7 +27,7 @@ class Beer < ActiveRecord::Base
 
   def weight_change!(beer, new_weight)
     old_weight = beer.weight
-    if new_weight > old_weight
+    if new_weight > old_weight && new_weight-5 > old_weight
       beer.keg_number -= 1
       old_weight
     else

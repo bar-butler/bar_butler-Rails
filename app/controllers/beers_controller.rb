@@ -37,6 +37,7 @@ class BeersController < ApplicationController
       @drink = @beer.drinks.create(:amount => @amount)
       @beer.update_dry_at!
       KegUpdateJob.perform_later(current_user, @beer)
+      @beer.update(beer_params)
       render :edit, status: :ok
     else
       render json: { :error => @beer.errors.full_messages }, status: :bad_request
